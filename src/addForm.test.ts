@@ -18,7 +18,7 @@ describe("addForm", () => {
     const input = el.querySelector("input");
 
     if (!input) {
-      throw new Error('Input now found');
+      throw new Error("Input now found");
     }
 
     input.value = "123";
