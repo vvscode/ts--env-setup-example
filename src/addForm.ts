@@ -8,6 +8,11 @@
  3.*Если параграфов становится больше 4, первый из
  них удаляется. */
 export function addForm(el: HTMLElement):void {
+
+  if (!el) {
+    throw new Error('params is not provided');
+  }
+
   // el = document.createElement('div');
   const input: HTMLInputElement = document.createElement("input");
   const button = document.createElement("button");

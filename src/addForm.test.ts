@@ -15,7 +15,11 @@ describe("addForm", () => {
   it("shows button if value is not empty", () => {
     addForm(el);
 
-    const input = el.querySelector("input") as HTMLInputElement;
+    const input = el.querySelector("input");
+
+    if (!input) {
+      throw new Error('Input now found');
+    }
 
     input.value = "123";
     input.dispatchEvent(new window.Event("keyup"));
