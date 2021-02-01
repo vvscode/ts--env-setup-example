@@ -7,11 +7,7 @@
  содержащий текст из поля ввода.
  3.*Если параграфов становится больше 4, первый из
  них удаляется. */
-
-/**
- * @param {HTMLElement} el
- */
-export function addForm(el) {
+export function addForm(el: HTMLElement):void {
   // el = document.createElement('div');
   const input: HTMLInputElement = document.createElement("input");
   const button = document.createElement("button");

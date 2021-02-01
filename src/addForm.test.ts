@@ -1,7 +1,7 @@
 import { addForm } from "./addForm";
 
 describe("addForm", () => {
-  let el;
+  let el: HTMLDivElement;
   beforeEach(() => {
     el = document.createElement("div");
   });
@@ -15,11 +15,14 @@ describe("addForm", () => {
   it("shows button if value is not empty", () => {
     addForm(el);
 
-    const input = el.querySelector("input");
+    const input = el.querySelector("input") as HTMLInputElement;
+
     input.value = "123";
     input.dispatchEvent(new window.Event("keyup"));
     expect(el.querySelector("button")).not.toBe(null);
-    expect(el.querySelector("button").innerHTML).toEqual("add");
+    expect((el.querySelector("button") as HTMLButtonElement).innerHTML).toEqual(
+      "add"
+    );
 
     input.value = "";
     input.dispatchEvent(new window.Event("keyup"));
@@ -28,11 +31,11 @@ describe("addForm", () => {
 
   it("adds new p on click by button", () => {
     addForm(el);
-    const input = el.querySelector("input");
+    const input = el.querySelector("input") as HTMLInputElement;
     const text = `${Math.random()}`;
     input.value = text;
     input.dispatchEvent(new window.Event("keyup"));
-    const button = el.querySelector("button");
+    const button = el.querySelector("button") as HTMLButtonElement;
 
     button.dispatchEvent(new window.Event("click"));
     expect(input.value).toBe("");
@@ -42,13 +45,13 @@ describe("addForm", () => {
 
   it("has limited number of paragraphs", () => {
     addForm(el);
-    const input = el.querySelector("input");
+    const input = el.querySelector("input") as HTMLInputElement;
 
     for (let i = 0; i < 5; i++) {
       const text = `${Math.random()}`;
       input.value = text;
       input.dispatchEvent(new window.Event("keyup"));
-      const button = el.querySelector("button");
+      const button = el.querySelector("button") as HTMLButtonElement;
       button.dispatchEvent(new window.Event("click"));
 
       if (i > 1) {
@@ -62,11 +65,11 @@ describe("addForm", () => {
 
   it("hides button on adding paragraph", () => {
     addForm(el);
-    const input = el.querySelector("input");
+    const input = el.querySelector("input") as HTMLInputElement;
     const text = `${Math.random()}`;
     input.value = text;
     input.dispatchEvent(new window.Event("keyup"));
-    const button = el.querySelector("button");
+    const button = el.querySelector("button") as HTMLButtonElement;
 
     button.dispatchEvent(new window.Event("click"));
     expect(el.querySelector("button")).toBe(null);
