@@ -13,7 +13,7 @@
  */
 export function addForm(el) {
   // el = document.createElement('div');
-  const input = document.createElement("input");
+  const input: HTMLInputElement = document.createElement("input");
   const button = document.createElement("button");
   button.innerHTML = "add";
   button.addEventListener("click", () => {
