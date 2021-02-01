@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "lint": "prettier --check . && eslint .",
-    "lint:fix": "prettier --write . && eslint . --fix",
+    "lint": "prettier --check . && eslint . --ext .js,.ts",
+    "lint:fix": "prettier --write . && eslint . --fix --ext .js,.ts",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
@@ -50,7 +50,7 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --cache --fix"
+      "eslint --cache --fix --ext .js,.ts"
     ],
     "*.{css,md}": "prettier --write"
   },
@@ -64,7 +64,7 @@
   "jest": {
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
+    "collectCoverage": false,
     "coverageThreshold": {
       "global": {
         "branches": 60,

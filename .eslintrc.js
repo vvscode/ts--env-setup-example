@@ -16,5 +16,7 @@ module.exports = {
     "no-alert": "off",
     "no-restricted-globals": "off",
     "no-plusplus": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
   },
 };
